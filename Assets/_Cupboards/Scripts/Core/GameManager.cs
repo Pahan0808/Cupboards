@@ -6,7 +6,7 @@ using VContainer;
 
 namespace Cupboards
 {
-    public partial class GameController
+    public partial class GameManager
     {
         private readonly List<Chip> _chips = new();
         private readonly CompositeDisposable _compositeDisposable = new();
@@ -34,23 +34,29 @@ namespace Cupboards
 
         #region Injection
         
+        private ColorService _colorService;
         private ConfigParser _configParser;
         private GameOverWindow _gameOverWindow;
         private FileService _fileService;
         private PathfindingService _pathfindingService;
+        private WinPreview _winPreview;
 
         [Inject]
         public void Construct(
+            ColorService colorService,
             ConfigParser configParser,
             GameOverWindow gameOverWindow,
             FileService fileService,
-            PathfindingService pathfindingService
+            PathfindingService pathfindingService,
+            WinPreview winPreview
         )
         {
+            _colorService = colorService;
             _configParser = configParser;
             _gameOverWindow = gameOverWindow;
             _fileService = fileService;
             _pathfindingService = pathfindingService;
+            _winPreview = winPreview;
         }
 
         #endregion
@@ -118,7 +124,7 @@ namespace Cupboards
 
                 var chip = Instantiate(_chipPrefab, _chipContainer);
                 chip.transform.SetLocalPositionAndRotation(position.Position, Quaternion.identity);
-                chip.Setup(positionId);
+                chip.Setup(positionId, _colorService[i]);
                 chip.Clicked.Subscribe(OnChipClicked).AddTo(_compositeDisposable);
                 _chips.Add(chip);
             }
@@ -147,7 +153,9 @@ namespace Cupboards
 
         private void InitializeGame()
         {
+            _colorService.GenerateRandomColors(_config.ChipCount);
             _currentLayout = new List<int>(_config.InitialLayout);
+            _winPreview.Create(_config);
             CreateConnections();
             CreateChips();
             CreatePositions();
@@ -216,7 +224,7 @@ namespace Cupboards
         }
     }
 
-    public partial class GameController : MonoBehaviour
+    public partial class GameManager : MonoBehaviour
     {
         private void Awake()
         {

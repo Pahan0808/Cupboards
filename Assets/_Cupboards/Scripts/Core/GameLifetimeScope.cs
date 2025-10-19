@@ -7,11 +7,13 @@ namespace Cupboards
     {
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.Register<ColorService>(Lifetime.Singleton);
             builder.Register<ConfigParser>(Lifetime.Singleton);
             builder.Register<FileService>(Lifetime.Singleton);
             builder.Register<PathfindingService>(Lifetime.Singleton);
 
             builder.RegisterComponentInHierarchy<GameOverWindow>();
+            builder.RegisterComponentInHierarchy<WinPreview>();
         }
     }
 }

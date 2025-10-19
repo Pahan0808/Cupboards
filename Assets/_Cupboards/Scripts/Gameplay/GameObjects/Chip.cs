@@ -8,9 +8,10 @@ namespace Cupboards
 {
     public partial class Chip
     {
-        [SerializeField] private Color _defaultColor = Color.white;
         [SerializeField] private Color _selectedColor = Color.yellow;
         [SerializeField] private SpriteRenderer _spriteRenderer;
+        
+        private Color _defaultColor = Color.white;
     
         public readonly Subject<Chip> Clicked = new();
         
@@ -22,9 +23,11 @@ namespace Cupboards
             _spriteRenderer.color = _defaultColor;
         }
 
-        public void Setup(int startPositionId)
+        public void Setup(int startPositionId, Color color)
         {
             CurrentPositionId = startPositionId;
+            _defaultColor = color;
+            _spriteRenderer.color = _defaultColor;
         }
 
         public async UniTask MoveAsync(Vector2 targetPosition, int targetPositionId, float duration = 0.5f)
@@ -48,7 +51,6 @@ namespace Cupboards
         private void Awake()
         {
             _spriteRenderer.color = _defaultColor;
-
         }
         
         private void OnDestroy()
