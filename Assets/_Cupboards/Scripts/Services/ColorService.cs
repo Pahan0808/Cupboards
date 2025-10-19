@@ -8,8 +8,8 @@ namespace Cupboards
     {
         private readonly Color[] _baseColors = 
         {
-            new Color32(8, 37, 204, 103),
-            new Color32(65, 105, 204, 225),
+            new Color32(8, 37, 204, 255),
+            new Color32(65, 105, 204, 255),
             new Color32(120, 81, 169, 255),
             new Color32(202, 44, 146, 255),
             new Color32(202, 1, 71, 255),

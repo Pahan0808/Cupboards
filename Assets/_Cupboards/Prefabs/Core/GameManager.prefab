@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1663da8d96245bb4b9699dddacaf0e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cupboards.GameController
-  _defaultFileName: level1.txt
+  _defaultFileName: level_001.txt
   _chipContainer: {fileID: 7195432637691705708}
   _connectionContainer: {fileID: 4358026599454676587}
   _positionContainer: {fileID: 211024317422414961}

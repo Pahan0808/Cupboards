@@ -291,6 +291,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6855530057161869501, guid: 4350b6699872d9a4fa793e68a78173f8, type: 3}
   m_PrefabInstance: {fileID: 5321049655937416258}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1407617516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6256536542581699267, guid: d1f652d5861d700499587cc2936799b0, type: 3}
+  m_PrefabInstance: {fileID: 959160128038651989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1630598459
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,12 +667,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7838541801716895305, guid: 5f5b0c51ce59d3942a467bf9cf6070ae, type: 3}
       propertyPath: autoInjectGameObjects.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7838541801716895305, guid: 5f5b0c51ce59d3942a467bf9cf6070ae, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[0]'
       value: 
       objectReference: {fileID: 719771984}
+    - target: {fileID: 7838541801716895305, guid: 5f5b0c51ce59d3942a467bf9cf6070ae, type: 3}
+      propertyPath: 'autoInjectGameObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1407617516}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

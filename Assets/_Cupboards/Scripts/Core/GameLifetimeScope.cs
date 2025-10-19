@@ -12,6 +12,7 @@ namespace Cupboards
             builder.Register<FileService>(Lifetime.Singleton);
             builder.Register<PathfindingService>(Lifetime.Singleton);
 
+            builder.RegisterComponentInHierarchy<GameManager>();
             builder.RegisterComponentInHierarchy<GameOverWindow>();
             builder.RegisterComponentInHierarchy<WinPreview>();
         }

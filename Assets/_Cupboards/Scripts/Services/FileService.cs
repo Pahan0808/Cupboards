@@ -19,7 +19,7 @@ namespace Cupboards
 
         private static string GetPath(string fileName)
         {
-            return $"{Application.dataPath}/ConfigFiles/{fileName}";
+            return $"{Application.dataPath}/_Cupboards/Resources/{fileName}";
         }
     }
 }
