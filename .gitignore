@@ -12,10 +12,6 @@
 /[Uu]ser[Ss]ettings/
 *.log
 
-# By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
-*.blend1
-*.blend1.meta
-
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
@@ -97,3 +93,12 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# JetBrains Rider and IDE configs
+.idea/
+*.idea/
+
+# NuGetForUnity specific (exclude the Packages/ directory if you want to ignore all packages)
+# If you want to ignore all NuGet packages:
+/[Aa]ssets/Packages/
+/[Aa]ssets/Packages.meta
