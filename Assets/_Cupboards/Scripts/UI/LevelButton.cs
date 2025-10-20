@@ -14,7 +14,7 @@ namespace Cupboards
 
         public void SetName(string buttonName)
         {
-            _textBox.text = buttonName;
+            _textBox.text = buttonName.Replace(".txt", "");
         }
     }
 

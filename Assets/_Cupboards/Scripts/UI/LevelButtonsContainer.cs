@@ -44,20 +44,13 @@ namespace Cupboards
 
         private static IEnumerable<string> GetAllFileNames()
         {
-            var folderPath = Path.Combine(Application.dataPath, "_Cupboards", "Resources");
-            var fileNames = new List<string>();
-        
-            if (Directory.Exists(folderPath))
-            {
-                var allFiles = Directory.GetFiles(folderPath, "*.txt");
-                fileNames.AddRange(allFiles.Select(Path.GetFileName));
-            }
-            else
-            {
-                Debug.LogError($"Directory not found: {folderPath}");
-            }
-
-            return fileNames;
+            var allTextAssets = Resources.LoadAll<TextAsset>("");
+    
+            var levelFiles = allTextAssets
+                .Where(asset => asset.name.StartsWith("level_"))
+                .Select(asset => asset.name);
+    
+            return levelFiles.ToList();
         }
 
         private void CreateButtons()
